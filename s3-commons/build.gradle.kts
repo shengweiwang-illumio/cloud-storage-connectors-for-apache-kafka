@@ -99,6 +99,14 @@ dependencies {
 
   testRuntimeOnly(testinglibs.junit.jupiter.engine)
   testRuntimeOnly(logginglibs.logback.classic)
+
+  // Exclude problematic netty dependencies for MacOS
+  configurations.all {
+    resolutionStrategy {
+      force("io.netty:netty-transport-native-epoll:4.1.100.Final:linux-x86_64")
+      exclude(group = "io.netty", module = "netty-transport-native-epoll")
+    }
+  }
 }
 
 tasks.withType<Jar> { archiveBaseName.set(project.name + "-for-apache-kafka-connect") }

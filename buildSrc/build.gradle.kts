@@ -7,7 +7,7 @@ repositories {
     mavenCentral()
 }
 
-val spotbugsVersion by extra ("6.0.4")
+val spotbugsVersion by extra ("5.0.13")
 val spotlessVersion by extra ("6.23.2")
 
 dependencies {
